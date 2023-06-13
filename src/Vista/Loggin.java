@@ -169,6 +169,8 @@ public class Loggin extends javax.swing.JFrame {
             rs = ps.executeQuery();
             
             if (rs.next()) {
+                PanelAdmin panelAdmin = new PanelAdmin();
+                panelAdmin.setVisible(true);
                  JOptionPane.showMessageDialog(null, "Acceso Confirmado");
             } else {
                 JOptionPane.showMessageDialog(null, "USUTARIO NO REGISTRADO");
