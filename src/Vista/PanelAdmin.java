@@ -1,16 +1,13 @@
 package Vista;
 
-import java.awt.Color;
 import java.awt.Dimension;
 
 public class PanelAdmin extends javax.swing.JFrame {
 
     public PanelAdmin() {
         initComponents();
-        //setLocationRelativeTo(null);
+        setLocationRelativeTo(null);
         this.setTitle("Sistema de Planillas");
-        //tablaPersonal.setVisible(false);
-        //dpEscritorio.setBackground(new Color(0, 0, 0, 0));
     }
 
     @SuppressWarnings("unchecked")
@@ -21,7 +18,7 @@ public class PanelAdmin extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        btnListaPersonal = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         dpEscritorio = new javax.swing.JDesktopPane();
 
@@ -53,11 +50,11 @@ public class PanelAdmin extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
-        jButton1.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
-        jButton1.setText("Lista Personal");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnListaPersonal.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        btnListaPersonal.setText("Lista Personal");
+        btnListaPersonal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnListaPersonalActionPerformed(evt);
             }
         });
 
@@ -71,7 +68,7 @@ public class PanelAdmin extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
+                    .addComponent(btnListaPersonal, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(11, Short.MAX_VALUE))
         );
@@ -79,7 +76,7 @@ public class PanelAdmin extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(39, 39, 39)
-                .addComponent(jButton1)
+                .addComponent(btnListaPersonal)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 292, Short.MAX_VALUE)
                 .addComponent(jButton2)
                 .addGap(206, 206, 206))
@@ -136,18 +133,15 @@ public class PanelAdmin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnListaPersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListaPersonalActionPerformed
         ifrmTablaPersonal ifrmtablaper = new ifrmTablaPersonal();
         dpEscritorio.add(ifrmtablaper);
         Dimension desktopSize = dpEscritorio.getSize();
         Dimension FrameSize = ifrmtablaper.getSize();
         ifrmtablaper.setLocation((desktopSize.width - FrameSize.width)/2, (desktopSize.height- FrameSize.height)/2);
         ifrmtablaper.show();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnListaPersonalActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -181,8 +175,8 @@ public class PanelAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnListaPersonal;
     private javax.swing.JDesktopPane dpEscritorio;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
