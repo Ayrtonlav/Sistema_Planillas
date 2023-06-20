@@ -1,20 +1,35 @@
 package Modelo;
 
 public class Cargo extends Departamento {
+    private int id_cargo;
     private String nombre_cargo;
 
     public Cargo() {
     }
 
-    public Cargo(String nombre_cargo) {
+    public Cargo(int id_cargo) {
+        this.id_cargo = id_cargo;
+    }
+
+    public Cargo(int id_cargo, String nombre_cargo) {
+        this.id_cargo = id_cargo;
         this.nombre_cargo = nombre_cargo;
     }
+
 
     public Cargo(String nombre_cargo, String nombre_Departamento) {
         super(nombre_Departamento);
         this.nombre_cargo = nombre_cargo;
     }
 
+    public int getId_cargo() {
+        return id_cargo;
+    }
+
+    public void setId_cargo(int id_cargo) {
+        this.id_cargo = id_cargo;
+    }
+    
     public String getNombre_cargo() {
         return nombre_cargo;
     }
@@ -22,5 +37,5 @@ public class Cargo extends Departamento {
     public void setNombre_cargo(String nombre_cargo) {
         this.nombre_cargo = nombre_cargo;
     }
-
+    
 }

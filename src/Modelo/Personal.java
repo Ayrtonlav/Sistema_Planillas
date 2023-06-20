@@ -42,8 +42,8 @@ public class Personal extends Cargo{
         this.fecha_salida = fecha_salida;
     }
 
-    public Personal(String nombre, String apellido, String dni, String direccion, String Distrito, String Provincia, String Departamento, String genero, String estado, Date fecha_nacimiento, String email, String telefono, String regPension, String num_Cuenta, Date fecha_ingreso, Date fecha_salida, String nombre_cargo) {
-        super(nombre_cargo);
+    public Personal(String nombre, String apellido, String dni, String direccion, String Distrito, String Provincia, String Departamento, String genero, String estado, Date fecha_nacimiento, String email, String telefono, String regPension, String num_Cuenta, Date fecha_ingreso, Date fecha_salida, int id_cargo) {
+        super(id_cargo);
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
@@ -61,6 +61,7 @@ public class Personal extends Cargo{
         this.fecha_ingreso = fecha_ingreso;
         this.fecha_salida = fecha_salida;
     }
+
 
     public Personal(String nombre, String apellido, String dni, String direccion, String Distrito, String Provincia, String Departamento, String genero, String estado, Date fecha_nacimiento, String email, String telefono, String regPension, String num_Cuenta, Date fecha_ingreso, Date fecha_salida, String nombre_cargo, String nombre_Departamento) {
         super(nombre_cargo, nombre_Departamento);
@@ -81,8 +82,10 @@ public class Personal extends Cargo{
         this.fecha_ingreso = fecha_ingreso;
         this.fecha_salida = fecha_salida;
     }
-    
-    
+
+    public Personal(String dni) {
+        this.dni = dni;
+    }
 
     public String getNombre() {
         return nombre;
