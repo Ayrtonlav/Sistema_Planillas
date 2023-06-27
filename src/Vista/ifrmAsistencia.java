@@ -248,24 +248,17 @@ public class ifrmAsistencia extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Usuario no Seleccionado");
         } else {
             String personal = (String) tableDatos.getValueAt(filas, 0);
+            String personalId = "";
             String asistencia = (String) tableDatos.getValueAt(filas, 1);
             String fecha = (String) tableDatos.getValueAt(filas, 2);
             String horaIn = (String) tableDatos.getValueAt(filas, 3);
             String horaOut = (String) tableDatos.getValueAt(filas, 4);
-            /*switch (idCargo) {
-                case "1": id_Cargo = "Director Sistemas Administrativos"; break;
-                case "2": id_Cargo = "Asistente Social"; break;
-                case "3": id_Cargo = "Planificador"; break;
-                case "4": id_Cargo = "Abogado"; break;
-                case "5": id_Cargo = "Especialista administrativo"; break;
-                case "6": id_Cargo = "Ingeniero"; break;
-                case "7": id_Cargo = "Estadistico"; break;
-                case "8": id_Cargo = "Secretaria"; break;
-                case "9": id_Cargo = "Tecnico Administrativo"; break;
-                case "10": id_Cargo = "Chofer"; break;
-                case "11": id_Cargo = "Programador sistema pad"; break;
-                case "12": id_Cargo = "Trabajador de servicio"; break;
-            }*/
+            switch (personal) {
+                case "0": personalId = "Ayrton"; break;
+                case "1": personalId = "Catalina"; break;
+                case "2": personalId = "Jesus"; break;
+                case "3": personalId = "Akemi"; break;
+            }
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             try {
                 Date fechaDia = dateFormat.parse(fecha);
@@ -275,13 +268,13 @@ public class ifrmAsistencia extends javax.swing.JInternalFrame {
             }
             LocalTime localTimeIn = LocalTime.parse(horaIn);
             Time horaInTime = Time.valueOf(localTimeIn);
-            
+
             LocalTime localTimeOunt = LocalTime.parse(horaOut);
             Time horaOutTime = Time.valueOf(localTimeOunt);
-            
-            jcbPersonal.setSelectedItem(personal);
+
+            jcbPersonal.setSelectedItem(personalId);
             jcbAsistencia.setSelectedItem(asistencia);
-            
+
             jdcHoraIngreso.setDate(horaInTime);
             jdcHoraSalida.setDate(horaOutTime);
         }
@@ -342,7 +335,7 @@ public class ifrmAsistencia extends javax.swing.JInternalFrame {
             Date Fecha = dateFormat.parse(fecha);
             Asistencia asistencia = new Asistencia(personal, asistir, Fecha, horaIn, minutoIn, horaOut, minutoOut);
             registrar(asistencia);
-            JOptionPane.showMessageDialog(null, "Personal Actualizado");
+            //JOptionPane.showMessageDialog(null, "Personal Actualizado");
         } catch (Exception ex) {
             Logger.getLogger(ifrmAsistencia.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -397,7 +390,7 @@ public class ifrmAsistencia extends javax.swing.JInternalFrame {
     }
 
     public void modificar(Asistencia asistencia) {
-        String sql = "UPDATE asistencia SET id_personal=?, asistencia=?, fecha=?, hora_ingreso=?, hora_salida=? where dni='" + asistencia.getId_personal() + "'";
+        String sql = "UPDATE asistencia SET id_personal=?, asistencia=?, fecha=?, hora_ingreso=?, hora_salida=? where id_personal='" + asistencia.getId_personal() + "'";
         Time timeIn = new Time(asistencia.getHora_ingreso(), asistencia.getMin_ingreso(), 0);
         Time timeOut = new Time(asistencia.getHora_salida(), asistencia.getMin_salida(), 0);
         String timeInTexto = timeIn.toString();
