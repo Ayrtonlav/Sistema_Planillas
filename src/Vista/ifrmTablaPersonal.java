@@ -69,6 +69,8 @@ public class ifrmTablaPersonal extends javax.swing.JInternalFrame {
         jcbCargo = new javax.swing.JComboBox<>();
         btnLimpiar = new javax.swing.JButton();
 
+        setClosable(true);
+
         tableDatos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -387,17 +389,18 @@ public class ifrmTablaPersonal extends javax.swing.JInternalFrame {
                                     .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnLimpiar)))
-                        .addContainerGap(37, Short.MAX_VALUE))))
+                        .addContainerGap(17, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -445,6 +448,9 @@ public class ifrmTablaPersonal extends javax.swing.JInternalFrame {
         String numCuenta = txtNumCuenta.getText();
         String fechaIngreso = ((JTextField) jdcFechaIngreso.getDateEditor().getUiComponent()).getText();
         String fechaSalida = ((JTextField) jdcFechaSalida.getDateEditor().getUiComponent()).getText();
+        if (fechaSalida == null || fechaSalida.isEmpty()) {
+           fechaSalida = "0000/00/00";
+        }
         int cargo = jcbCargo.getSelectedIndex();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
         if (cargo != 0) {
@@ -481,6 +487,10 @@ public class ifrmTablaPersonal extends javax.swing.JInternalFrame {
         String numCuenta = txtNumCuenta.getText();
         String fechaIngreso = ((JTextField) jdcFechaIngreso.getDateEditor().getUiComponent()).getText();
         String fechaSalida = ((JTextField) jdcFechaSalida.getDateEditor().getUiComponent()).getText();
+        System.out.println(fechaSalida);
+        if (fechaSalida == null || fechaSalida.isEmpty()) {
+           fechaSalida = "0000/00/00";
+        }
         int cargo = jcbCargo.getSelectedIndex();
         System.out.println(cargo);
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
